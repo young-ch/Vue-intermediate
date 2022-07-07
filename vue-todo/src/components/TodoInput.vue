@@ -4,14 +4,27 @@
     <span class="addContainer" v-on:click="addTodo">
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
+
+    <Modal :show="showModal" @close="showModal = false">
+      <template #header>
+        <h3 slot="header">
+          경고!!!
+          <i class="closeModalBtn fa fa-times" aria-hidden="true" @click="showModal = false"></i>
+        </h3>
+        <div slot="body"> 아무것도 입력하지 않으셨습니다. </div>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from './common/modal.vue'
+
 export default {
   data: function() {
     return {
-      newTodoItem: ''
+      newTodoItem: '',
+      showModal: false
     }
   },
   methods: {
@@ -19,11 +32,18 @@ export default {
       if (this.newTodoItem !== '') {
         this.$emit('addTodoItem',this.newTodoItem);
         this.clearInput();
+      } else{
+        
+        this.showModal = !this.showModal 
+        
       }
     },
     clearInput: function() {
       this.newTodoItem = '';
     }
+  },
+  components: {
+    Modal: Modal
   }
 }
 </script>
