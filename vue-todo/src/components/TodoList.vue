@@ -16,30 +16,18 @@
 <script>
 
 export default {
-  // data: function() {
-  //   return {
-  //     todoItems: []
-  //   }
-  // },
+
   props: ['propsdata'],
   methods: {
-    removeTodo: function(todoItem, index) {
+    removeTodo(todoItem, index) {
       this.$emit('removeItem', todoItem, index);
     },
-    toggleComplete: function(todoItem, index) {
+    toggleComplete(todoItem, index) {
       this.$emit('toggleItem', todoItem, index );
     
     }
   },
-  // created: function() {
-  //   if (localStorage.length > 0) {
-  //     for (var i = 0; i < localStorage.length; i++) {
-  //       if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-  //         this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-  //       }
-  //     }
-  //   }
-  // }
+
 }
 </script>
 
