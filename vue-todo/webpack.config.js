@@ -21,8 +21,10 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-          }
+          },
           // other vue-loader options go here
+          emitWarning: true,
+
         }
       },
       {
